@@ -198,7 +198,7 @@ ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: PIZZA")
 endif
 
 ifcontains(%CHATCLEAN%,"MAJOR EVENT! SQUADS in 1 min")
-	log(&f[&6Pit Autogrinder&f] &fSpire is starting, preparing to AFK.)
+	log(&f[&6Pit Autogrinder&f] &fSQUADS is starting, preparing to AFK.)
 	slot(9)
 	stop(autoattack)
 	stop(grinder);
@@ -229,6 +229,42 @@ ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: SQUADS")
 	keyup(forward)
 	keyup(sprint)
 	log(&f[&6Pit Autogrinder&f] &fSquads event has ended. Resuming autogrinder.)
+	wait(5000ms)
+	exec("start.txt","start")
+endif
+
+ifcontains(%CHATCLEAN%,"MAJOR EVENT! TEAM DEATHMATCH in 1 min")
+	log(&f[&6Pit Autogrinder&f] &fTDM is starting, preparing to AFK.)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(Opponent);
+	stop(killcount);
+	stop(middetect);
+	stop(playerfinder)
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	wait(100ms)
+	echo(/oof)
+	wait(100ms)
+	slot(9)
+endif
+
+ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: TEAM DEATHMATCH")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(Opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fTDM event has ended. Resuming autogrinder.)
 	wait(5000ms)
 	exec("start.txt","start")
 endif
