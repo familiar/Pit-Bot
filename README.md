@@ -41,3 +41,4 @@ Open "config.txt", and replace the Discord webhook in quotations with your Disco
 - Press up-arrow to start the bot. (Bot should automatically start on server join though.)
 - Press "=" to stop the bot.
 - You can use 5zig to Auto-Reconnect to the server. Set the delay to 30 seconds for safety.
+
