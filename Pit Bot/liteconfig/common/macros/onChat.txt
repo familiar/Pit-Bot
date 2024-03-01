@@ -1,4 +1,9 @@
 $${
+
+ifcontains(%CHATCLEAN%,":")
+wait(100ms)
+echo("/togglechat")
+endif
 	
 ifcontains(%CHATCLEAN%,"KILL!")
 	inc(@#kills)
