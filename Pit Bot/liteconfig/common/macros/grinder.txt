@@ -1,0 +1,37 @@
+do	
+	if(YPOS == 114);
+		slot(9)
+		keyup(forward)
+		keyup(sprint)
+		keyup(jump)
+		stop(Opponent)
+		stop(autoattack)
+    		foreach("entities(filters:[{type:armor_stand,name:.+The Hypixel Pit}])");
+			@#yaw=%ENTITYYAWFROMPLAYER%
+			@#pitch = %ENTITYPITCHFROMPLAYER%
+			log(&f[&6Pit Autogrinder&f] &fPlayer is at &6spawn&f.)
+			looks(%@#yaw%,%@#pitch%,.2)
+			wait(200ms)
+			log(&f[&6Pit Autogrinder&f] &fDropping down...)
+			exec("Opponent.txt","Opponent")
+			keydown(forward)
+			keydown(sprint)
+			keydown(jump)
+			wait(2000ms)
+		next
+	endif;
+	if(YPOS < 90);
+		if((#x==%XPOS%)&&(#z==%ZPOS%))
+			inc(@#afk)
+		else
+			@#afk := "0"
+		endif
+		#x = %XPOS%
+		#z = %ZPOS%
+		if(@#afk > 50)
+		log(&f[&6Pit Autogrinder&f] Player is &cstuck&f... Going to spawn.)
+		echo(/oof)
+		endif
+	endif;
+endif;
+loop       

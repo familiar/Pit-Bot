@@ -1,0 +1,30 @@
+if(%@#heads% = 1);
+&emojihead = ":white_check_mark:"
+endif;
+if(%@#heads% = 0%);
+&emojihead = ":x:"
+endif;
+if(%@#vampire% = 1);
+&emojivamp = ":white_check_mark:"
+endif;
+if(%@#vampire% = 0%);
+&emojivamp = ":x:"
+endif;
+if(%@#strength% = 1);
+&emojistrength = ":white_check_mark:"
+endif;
+if(%@#strength% = 0%);
+&emojistrength = ":x:"
+endif;
+if(%@#gladiator% = 1);
+&emojiglad = ":white_check_mark:"
+endif;
+if(%@#gladiator% = 0%);
+&emojiglad = ":x:"
+endif;
+
+&message_json = "{\"content\":\"%&message%\"}"
+&example_content = {"content": null,"embeds": [{"title": "%PLAYER%","description": "__General Statistics:__\n:bulb: **Prestige:** %@&prestige%\n:chart_with_upwards_trend: **Level:** %@#level%\n:coin: **Gold:** %@&gold%\n\n__Purchased Perks:__\n**:exploding_head: Golden Heads**: %&emojihead%\n:vampire: **Vampire**: %&emojivamp%\n:drop_of_blood: **Strength Chaining**: %&emojistrength%\n:crossed_swords: **Gladiator**: %&emojiglad%", "color": 12109567, "footer": {"text": "sunsi autogrinder! - https://github.com/familiar/Pit-Bot"},"thumbnail": {"url": "https://visage.surgeplay.com/full/512/%PLAYER%"}}]}
+setrequestheader("User-Agent","%UUID%")
+setrequestheader("Content-Type","application/json")
+&response[] = httppost(%@&webhook_url%,%&example_content%,#status)

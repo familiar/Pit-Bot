@@ -1,0 +1,50 @@
+//Subtract a few from the real border
+@#xborder1 := "12";
+@#xborder2 := "-12";
+@#zborder1 := "12";
+@#zborder2 := "-12";
+@&targetypos = "";
+
+exec("autoattack.txt","autoattack");
+
+do;
+  unsafe;
+    if(YPOS < 100);
+
+      //Selecting sword and sprint jumping
+      slot(1);
+      keydown(forward);
+      keydown(jump);
+      keydown(sprint);
+
+      //Iterating over players at middle that fit the criteria - in middle as specified by vals above
+      foreach("entities(filters:[{type:player}])");
+        if((%ENTITYYPOS% < 85) && (%ENTITYXPOS% < %@#xborder1%) && (%ENTITYXPOS% > %@#xborder2%) && (%ENTITYXPOS% < %@#zborder1%) && (%ENTITYXPOS% > %@#zborder2%) (%ENTITYCHESTPLATEID% == "iron_chestplate") && (%ENTITYBOOTSID% != "diamond_boots") || (%ENTITYYPOS% < 85) && (%ENTITYXPOS% < %@#xborder1%) && (%ENTITYXPOS% > %@#xborder2%) && (%ENTITYXPOS% < %@#zborder1%) && (%ENTITYXPOS% > %@#zborder2%) (%ENTITYCHESTPLATEID% == "chain_chestplate") && (%ENTITYBOOTSID% != "diamond_boots"));
+          
+      //Declaring targets
+          @&target = "%ENTITYNAME%";
+          @&targetypos = "%ENTITYYPOS%";
+          @#distancefrom = "%ENTITYDISTANCE%";
+          
+          
+      //If target isnt yourself look at them
+          if(%@&target% != %@&yourign%);
+            if((%ENTITYNAME% == %@&target%) && (%@#distancefrom% >= 4));
+              looks(%ENTITYYAWFROMPLAYER%,%ENTITYPITCHFROMPLAYER%,.3);
+              break;
+            endif;
+            if((%ENTITYNAME% == %@&target%) && (%@#distancefrom% < 4));
+              looks(%ENTITYYAWFROMPLAYER%,%ENTITYPITCHFROMPLAYER%,.1);
+              break;
+            endif;
+            if((%ENTITYNAME% == %@&target%) && (%@#distancefrom% <= 0));
+              looks(%ENTITYYAWFROMPLAYER%,%ENTITYPITCHFROMPLAYER%,.3);
+              break;
+            endif;
+          endif;
+
+        endif;
+      next;
+    endif;
+  endunsafe;
+loop;

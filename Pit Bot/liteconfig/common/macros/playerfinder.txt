@@ -1,0 +1,12 @@
+do;
+  unsafe;
+      foreach("entities(filters:[{type:player}])");
+          if((%@&target% != %@&yourign%) && ((%ENTITYNAME% == "sunsi")));
+            exec("playertrade.txt","playertrade")
+            wait(100ms)
+            stop(playerfinder)
+          endif;
+        endif;
+      next;
+  endunsafe;
+loop;

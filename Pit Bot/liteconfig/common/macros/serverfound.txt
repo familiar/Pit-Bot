@@ -1,0 +1,21 @@
+slot(9)
+stop(all)
+log(&f[&6Pit Autogrinder&f] &fYou swapped lobbies.)
+wait(6000ms)
+slot(9)
+stop(grinder);
+stop(opponent);
+stop(killcount);
+stop(playerfinder)
+stop(middetect);
+stop(progresscheck);
+wait(500ms)
+keyup(jump)
+keyup(forward)
+keyup(sprint)
+exec("webhook.txt","webhook")
+exec("grinder.txt","grinder")
+exec("middetect.txt","middetect")
+exec("playerfinder.txt","playerfinder")
+exec("killcount.txt","killcount")
+exec("progresscheck.txt","progresscheck")

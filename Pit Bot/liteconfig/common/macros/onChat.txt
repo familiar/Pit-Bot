@@ -1,0 +1,230 @@
+$${
+	
+ifcontains(%CHATCLEAN%,"KILL!")
+	inc(@#kills)
+endif
+
+ifcontains(%CHATCLEAN%,"DEATH")
+	stop(autoattack)
+	stop(Opponent)
+	slot(9)
+	@#afk := "0"
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+endif
+
+ifcontains(%CHATCLEAN%,"INSTANCE SHUTDOWN IN 5 MINUTES!")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(playerfinder)
+	stop(killcount);
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fLobby is closing.)
+	echo(/play pit)
+endif
+
+ifcontains(%CHATCLEAN%,"EEK! Are you trying")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fCouldn't warp you.)
+	wait(5000ms)
+	echo(/play pit)
+endif
+
+ifcontains(%CHATCLEAN%,"Please don't spam the command.")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fCouldn't warp you.)
+	wait(5000ms)
+	echo(/play pit)
+endif
+
+ifcontains(%CHATCLEAN%,"SERVER FOUND")
+	wait(1000ms)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(playerfinder)
+	stop(killcount);
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	exec("serverfound.txt","serverfound")
+endif
+
+ifcontains(%CHATCLEAN%,"MAJOR EVENT! SPIRE in 1 min")
+	log(&f[&6Pit Autogrinder&f] &fSpire is starting. Preparing to AFK.)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	wait(100ms)
+	echo(/oof)
+	wait(100ms)
+	slot(9)
+endif
+
+ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: SPIRE")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(middetect);
+	stop(playerfinder)
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fSpire event has ended. Resuming autogrinder.)
+	wait(5000ms)
+	exec("start.txt","start")
+endif
+
+ifcontains(%CHATCLEAN%,"MAJOR EVENT! RAFFLE in 1 min")
+	log(&f[&6Pit Autogrinder&f] &fRaffle is starting, preparing to AFK.)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	wait(100ms)
+	echo(/oof)
+	wait(100ms)
+	slot(9)
+endif
+
+ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: RAFFLE")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(middetect);
+	stop(playerfinder)
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fRaffle event has ended. Resuming autogrinder.)
+	wait(5000ms)
+	exec("start.txt","start")
+endif
+
+ifcontains(%CHATCLEAN%,"PIT LEVEL UP!")
+	exec("pitlevelup.txt","pitlevelup")
+endif
+
+ifcontains(%CHATCLEAN%,"MAJOR EVENT! PIZZA in 1 min")
+	log(&f[&6Pit Autogrinder&f] &fPizza is starting, preparing to AFK.)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	wait(100ms)
+	echo(/oof)
+	wait(100ms)
+	slot(9)
+endif
+
+ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: PIZZA")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fPizza event has ended. Resuming autogrinder.)
+	wait(5000ms)
+	exec("start.txt","start")
+endif
+
+ifcontains(%CHATCLEAN%,"MAJOR EVENT! SQUADS in 1 min")
+	log(&f[&6Pit Autogrinder&f] &fSpire is starting, preparing to AFK.)
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(Opponent);
+	stop(killcount);
+	stop(middetect);
+	stop(playerfinder)
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	wait(100ms)
+	echo(/oof)
+	wait(100ms)
+	slot(9)
+endif
+
+ifcontains(%CHATCLEAN%,"PIT EVENT ENDED: SQUADS")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(Opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fSquads event has ended. Resuming autogrinder.)
+	wait(5000ms)
+	exec("start.txt","start")
+endif
+}$$

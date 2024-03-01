@@ -1,0 +1,30 @@
+do
+if(YPOS < 90)
+   if(XPOS > 15)
+	log(&f[&6Pit Autogrinder&f] &fDetected player has &cleft &fmiddle... Going back to spawn.)
+	echo(/oof)
+	wait(10000ms)
+   endif
+endif
+if(YPOS < 90)
+   if(XPOS < -15)
+	log(&f[&6Pit Autogrinder&f] &fDetected player has &cleft &fmiddle... Going back to spawn.)
+	echo(/oof)
+	wait(10000ms)
+   endif
+endif
+if(YPOS < 90)
+   if(ZPOS > 15)
+	log(&f[&6Pit Autogrinder&f] &fDetected player has &cleft &fmiddle... Going back to spawn.)
+	echo(/oof)
+	wait(10000ms)
+   endif
+endif
+if(YPOS < 90)
+   if(ZPOS < -15)
+	log(&f[&6Pit Autogrinder&f] &fDetected player has &cleft &fmiddle... Going back to spawn.)
+	echo(/oof)
+	wait(10000ms)
+   endif
+endif
+loop

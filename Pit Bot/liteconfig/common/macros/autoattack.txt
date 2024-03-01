@@ -1,0 +1,4 @@
+do
+key(attack)
+wait(10ms)
+loop

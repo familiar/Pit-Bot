@@ -1,0 +1,19 @@
+// ---------------- //
+// User Config // 
+// ---------------- //
+
+//Put your Discord webhook url in between the quotes
+@&webhook_url = "";
+
+//Kill count before swapping servers
+
+//Nicking feature - if you have MVP++ the bot will run /nick random every time it joins the lobby
+//Set this to 1 if you have ++ and want to use it, 0 if your don't have ++
+@#nicking = 0;
+
+// ---------------- //
+// IGNORE, BOT CONFIG // 
+// ---------------- //
+
+// Will autodetect your ign
+@&yourign = "%PLAYER%";

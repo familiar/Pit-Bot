@@ -1,0 +1,22 @@
+@#kills := "0"
+do
+wait(60000ms)
+	//this value is 2x, so itll requeue if it doesnt get 5 kills
+	if(@#kills < 10)
+		log(&f[&6Pit Autogrinder&f] &fDid not meet kill requirement. Swapping.)
+		echo(/oof)
+		slot(9)
+		stop(grinder)
+		stop(sword)
+		stop(middetect)
+		keyup(jump)
+		keyup(sprint)
+		keyup(forward)
+		@#kills := "0"
+		wait(5000ms)
+		echo(/play pit)
+	endif
+	elseif
+	log(&f[&6Pit Autogrinder&f] &fMet the kill requirement! Staying in the lobby.)
+	@#kills := "0"
+loop
