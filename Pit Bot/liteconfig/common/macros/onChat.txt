@@ -69,6 +69,25 @@ ifcontains(%CHATCLEAN%,"Please don't spam the command.")
 	echo(/play pit)
 endif
 
+ifcontains(%CHATCLEAN%,"You were spawned in Limbo.")
+	slot(9)
+	stop(autoattack)
+	stop(grinder);
+	stop(opponent);
+	stop(killcount);
+	stop(playerfinder)
+	stop(middetect);
+	stop(progresscheck);
+	keyup(jump)
+	keyup(forward)
+	keyup(sprint)
+	log(&f[&6Pit Autogrinder&f] &fYou were limboed.)
+	wait(1000ms)
+	echo(/hub)
+	wait(2500ms)
+	echo(/play pit)
+endif
+
 ifcontains(%CHATCLEAN%,"SERVER FOUND")
 	wait(1000ms)
 	slot(9)
